@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,10 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.question-container {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  padding: 10px 30px;
 }
