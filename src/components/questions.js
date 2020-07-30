@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Progressbar from "./progressbar.js";
+import Result from "./result.js";
+// import { useHistory } from "react-router-dom";
 
 class questions extends Component {
   constructor() {
@@ -61,74 +64,83 @@ class questions extends Component {
       answers: value,
       selectedOption: "",
     }));
+
     if (this.state.qno === this.state.noofquestions) {
       console.log(this.state.answers);
+      let path = `result`;
     }
   }
   render() {
     const { results, qno, selectedOption } = this.state;
-    return (
-      <div className="container">
-        <form onSubmit={this.formSubmit}>
-          <div className="card question-container">
-            <p>
-              <strong>QUESTION:</strong>
-              {results[qno].question}
-            </p>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value={results[qno].option1}
-                  checked={selectedOption === results[qno].option1}
-                  onChange={this.onValueChange}
-                  required
-                />
-                {results[qno].option1}
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value={results[qno].option2}
-                  checked={selectedOption === results[qno].option2}
-                  onChange={this.onValueChange}
-                />
-                {results[qno].option2}
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value={results[qno].option3}
-                  checked={selectedOption === results[qno].option3}
-                  onChange={this.onValueChange}
-                />
-                {results[qno].option3}
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  value={results[qno].option4}
-                  checked={selectedOption === results[qno].option4}
-                  onChange={this.onValueChange}
-                />
-                {results[qno].option4}
-              </label>
-            </div>
+    if (qno !== 4) {
+      return (
+        <div>
+          <Progressbar qno={qno} />
+          <div className="container">
+            <form onSubmit={this.formSubmit}>
+              <div className="card question-container">
+                <p>
+                  <strong>QUESTION:</strong>
+                  {results[qno].question}
+                </p>
+                <div className="radio">
+                  <label>
+                    <input
+                      type="radio"
+                      value={results[qno].option1}
+                      checked={selectedOption === results[qno].option1}
+                      onChange={this.onValueChange}
+                      required
+                    />
+                    {results[qno].option1}
+                  </label>
+                </div>
+                <div className="radio">
+                  <label>
+                    <input
+                      type="radio"
+                      value={results[qno].option2}
+                      checked={selectedOption === results[qno].option2}
+                      onChange={this.onValueChange}
+                    />
+                    {results[qno].option2}
+                  </label>
+                </div>
+                <div className="radio">
+                  <label>
+                    <input
+                      type="radio"
+                      value={results[qno].option3}
+                      checked={selectedOption === results[qno].option3}
+                      onChange={this.onValueChange}
+                    />
+                    {results[qno].option3}
+                  </label>
+                </div>
+                <div className="radio">
+                  <label>
+                    <input
+                      type="radio"
+                      value={results[qno].option4}
+                      checked={selectedOption === results[qno].option4}
+                      onChange={this.onValueChange}
+                    />
+                    {results[qno].option4}
+                  </label>
+                </div>
 
-            {/* <div>Selected option is : {selectedOption}</div> */}
+                {/* <div>Selected option is : {selectedOption}</div> */}
+              </div>
+              <button className="btn btn-success" type="submit">
+                Next
+              </button>
+            </form>
           </div>
-          <button className="btn btn-success" type="submit">
-            Next
-          </button>
-        </form>
-      </div>
-    );
+        </div>
+      );
+    } else {
+      return <Result score="50" maxscore="100" />;
+    }
   }
 }
 export default questions;
