@@ -1,7 +1,7 @@
 import React from "react";
 
 function result(props) {
-  return <div>{props.score}</div>;
+  return <h1>{props.score}</h1>;
 }
 
 export default result;

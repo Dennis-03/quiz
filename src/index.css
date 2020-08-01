@@ -1,4 +1,33 @@
 .progressbar {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 100px 0;
+}
+.progressbar .text {
+  background-color: bisque;
+  width: 300px;
+}
+
+.progressbar div {
+  margin: 15px;
+}
+
+.outerbar {
+  position: relative;
+  width: 303px;
+  border: 3px solid rgb(57, 252, 57);
+  border-radius: 20px;
+  height: 25px;
+}
+
+.innerbar {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  height: 20px;
+  z-index: -1;
+  border-radius: 20px;
+  background-color: green;
+  /* width: 300px; */
 }
